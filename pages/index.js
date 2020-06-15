@@ -50,6 +50,7 @@ export default function Home() {
 
         <a href={marketLink}>Market Link</a>
         <a href={appLink}>App Link</a>
+        <a href={customLink}>Custom Link</a>
       </main>
 
       <style jsx>{`
