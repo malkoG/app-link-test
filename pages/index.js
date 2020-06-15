@@ -15,7 +15,8 @@ export default function Home() {
 
   useEffect(() => {
     const [domain1, domain2] = host.split('.')
-    const marketRewrittenUrl = encodeURI(`link://${host}/${pathPrefix}?id=${parameter}`)
+    const resultCustomLink = `link://${host}/${pathPrefix}?id=${parameter}`
+    const marketRewrittenUrl = encodeURI(resultCustomLink)
     const resultMarketLink = `market://details?id=${domain2}.${domain1}.${projectName}&link=${marketRewrittenUrl}`
     const resultIntentLink = `intent://${host}/${pathPrefix}?id=${parameter}`
 
