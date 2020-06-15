@@ -50,27 +50,33 @@ export default function Home() {
                onChange={e => setProjectName(e.target.value)} />
 
         <table>
-          <th>type of link</th>
-          <td>link url</td>
+          <thead>
+            <tr>
+              <th>type of link</th>
+              <th>link url</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Market Link</td>
+              <td>
+                <a href={marketLink}>{marketLink}</a>
+              </td>
+            </tr>
+            <tr>
+              <td>App Link</td>
+              <td>
+                <a href={appLink}>{appLink}</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Custom Link</td>
+              <td>
+                <a href={customLink}>{customLink}</a>
+              </td>
+            </tr>
+          </tbody>
         </table>
-        <tr>
-          <td>Market Link</td>
-          <td>
-            <a href={marketLink}>{marketLink}</a>
-          </td>
-        </tr>
-        <tr>
-          <td>App Link</td>
-          <td>
-            <a href={appLink}>{appLink}</a>
-          </td>
-        </tr>
-        <tr>
-          <td>Custom Link</td>
-          <td>
-            <a href={customLink}>{customLink}</a>
-          </td>
-        </tr>
       </main>
 
       <style jsx>{`
