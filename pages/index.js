@@ -32,19 +32,19 @@ export default function Home() {
       <main>
         <input placeholder="scheme"
                value={scheme}
-               onChange={scheme => setScheme(scheme)} />
+               onChange={e => setScheme(e.target.value)} />
         <input placeholder="host"
                value={host}
-               onChange={host => setHost(host)} />
+               onChange={e => setHost(e.target.value)} />
         <input placeholder="host"
                value={pathPrefix}
-               onChange={pathPrefix => setPathPrefix(pathPrefix)} />
+               onChange={e => setPathPrefix(e.target.value)} />
         <input placeholder="parameter"
                value={parameter}
-               onChange={parameter => setParameter(parameter)} />
+               onChange={e => setParameter(e.target.value)} />
         <input placeholder="project name"
                value={projectName}
-               onChange={project => setProjectName(project)} />
+               onChange={e => setProjectName(e.target.value)} />
 
         <a href={marketLink}>Market Link</a>
         <a href={appLink}>App Link</a>
