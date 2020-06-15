@@ -10,6 +10,7 @@ export default function Home() {
 
   const [marketLink, setMarketLink] = useState('')
   const [appLink, setAppLink] = useState('')
+  const [customLink, setCustomLink] = useState('')
   const [intentLink, setIntentLink] = useState('')
 
   useEffect(() => {
@@ -19,6 +20,7 @@ export default function Home() {
     const resultIntentLink = `intent://${host}/${pathPrefix}?id=${parameter}`
 
     setMarketLink(resultMarketLink)
+    setCustomLink(marketRewrittenUrl)
     setAppLink(`https://${host}/${pathPrefix}?id=${parameter}`)
   }, [scheme, host, pathPrefix, parameter, projectName])
 
