@@ -21,7 +21,7 @@ export default function Home() {
     const resultIntentLink = `intent://${host}/${pathPrefix}?id=${parameter}`
 
     setMarketLink(resultMarketLink)
-    setCustomLink(marketRewrittenUrl)
+    setCustomLink(resultCustomLink)
     setAppLink(`https://${host}/${pathPrefix}?id=${parameter}`)
   }, [scheme, host, pathPrefix, parameter, projectName])
 
