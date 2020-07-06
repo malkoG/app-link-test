@@ -2,11 +2,11 @@ import Head from 'next/head'
 import React, { useState, useEffect } from 'react';
 
 export default function Home() {
-  const [scheme, setScheme] = useState('kodingwarrior')
-  const [host, setHost] = useState('kodingwarrior.dev')
-  const [pathPrefix, setPathPrefix] = useState('detail')
-  const [parameter, setParameter] = useState('1')
-  const [projectName, setProjectName] = useState('app')
+  const [scheme, setScheme] =  localStorage.getItem("__SCHEME__") || useState('kodingwarrior')
+  const [host, setHost] = localStorage.getItem("__HOST__") || useState('kodingwarrior.dev')
+  const [pathPrefix, setPathPrefix] = localStorage.getItem("__PATH_PREFIX__") || useState('detail')
+  const [parameter, setParameter] = localStorage.getItem("__PARAMETER__") || useState('1')
+  const [projectName, setProjectName] = localStorage.getItem("__PROJECT__") || useState('app')
 
   const [marketLink, setMarketLink] = useState('')
   const [appLink, setAppLink] = useState('')
@@ -25,6 +25,11 @@ export default function Home() {
     setAppLink(`https://${host}/${pathPrefix}?id=${parameter}`)
   }, [scheme, host, pathPrefix, parameter, projectName])
 
+  function syncStorage(key, event, setCallback) {
+    localStorage.setItem(key, event.target.value);
+    setCallback(event.target.value);
+  }
+
   return (
     <div className="container">
       <Head>
@@ -35,19 +40,19 @@ export default function Home() {
       <main>
         <input placeholder="scheme"
                value={scheme}
-               onChange={e => setScheme(e.target.value)} />
+               onChange={e => syncStorage("__SCHEME__", e, setScheme) } />
         <input placeholder="host"
                value={host}
-               onChange={e => setHost(e.target.value)} />
+               onChange={e => syncStorage("__HOST__", e, setHost) } />
         <input placeholder="host"
                value={pathPrefix}
-               onChange={e => setPathPrefix(e.target.value)} />
+               onChange={e => syncStorage("__PATH_PREFIX__", e, setPathPrefix) } />
         <input placeholder="parameter"
                value={parameter}
-               onChange={e => setParameter(e.target.value)} />
+               onChange={e => syncStorage("__PARAMETER__", e, setParameter) } />
         <input placeholder="project name"
                value={projectName}
-               onChange={e => setProjectName(e.target.value)} />
+               onChange={e => syncStorage("__PROJECT__", e, setProjectName) } />
 
         <table>
           <thead>
